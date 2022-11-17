@@ -13,7 +13,7 @@ const apiURL = "https://ih-countries-api.herokuapp.com/countries";
 
 function App() {
 
-  const [countryData, setCountry] = useState([])
+  const [countries, setCountry] = useState([])
 
   useEffect(() => {
     const apiCAll = async () => {
@@ -29,9 +29,9 @@ function App() {
       <Navbar/>
       <div className="container">
         <div className="row">
-        {countryData && <CountriesList countries={countryData}/>} 
+        {countries && <CountriesList countries={countries}/>} 
           <Routes>
-            <Route path="/:countryCode" element={<CountryDetails countries={countryData} />} />
+            <Route path="/:countryCode" element={<CountryDetails countries={countries} />} />
           </Routes>
         </div>
       </div>
