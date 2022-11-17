@@ -1,10 +1,13 @@
-import './Navbar.css'
+import { Link } from "react-router-dom";
+
 
 function Navbar(props) {
   
     return (
-      <nav className="navbar">
-        <p>WikiCounties</p>
+      <nav className="navbar navbar-dark bg-primary mb-3">
+        <div className="container">
+          <Link to={"/"} className="navbar-brand">WikiCounties</Link>
+        </div>
       </nav>
     )
   }

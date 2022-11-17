@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 
 
 function CountriesList(props) {
-    console.log(props)
     /* const countryData = props.countryData
     const [countries, setCountries] = useState(countryData) */
 
@@ -17,12 +16,15 @@ function CountriesList(props) {
 
   
     return (
-      <div className="list-container">
+      <div className="list-groups">
       {countries && countries.map((country) => {
                 return (
-                    <Link key={(country.alpha3Code)}>
-                        <p>{country.name.common}</p>
-                    </Link>
+                    <div key={(country.alpha3Code)} className="col-5" style={{maxHeight: "90vh", overflow: "scroll"}}>
+                        <Link to={`/${country.alpha3Code}`} className="list-group-item list-group-item-action">
+                            <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt="Country Flag"/>
+                            <p>{country.name.common}</p>
+                        </Link>
+                    </div>
                 )
             })}
         
