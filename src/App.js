@@ -15,8 +15,12 @@ function App() {
 
   useEffect(() => {
     const apiCAll = async () => {
-       const res = await axios.get(apiURL)
-       setCountry(res.data)
+      try {
+        const res = await axios.get(apiURL)
+        setCountry(res.data)
+      } catch (error) {
+        console.log(error)
+      }
     }
 
     apiCAll()
