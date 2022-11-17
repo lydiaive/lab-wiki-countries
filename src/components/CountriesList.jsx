@@ -5,15 +5,16 @@ import { useEffect, useState } from "react";
 
 
 function CountriesList(props) {
-    /* const countryData = props.countryData
-    const [countries, setCountries] = useState(countryData) */
 
+    const countries = props.countries
+    
+   /*  
+    const [countries, setCountries] = useState(countryData) 
     const [countries, setCountries] = useState([])
 
     useEffect(()=> {
         setCountries(props.countries)
-    }, [])
-
+    }, []) */
   
     return (
       <div className="list-groups">
