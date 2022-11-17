@@ -24,8 +24,6 @@ function App() {
     apiCAll()
   }, [])
 
-  console.log(countryData)
-
   return (
     <div className="App">
       <Navbar/>
