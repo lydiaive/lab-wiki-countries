@@ -7,9 +7,7 @@ import Navbar from './components/Navbar';
 import axios from "axios"
 import React, { useState, useEffect } from "react"
 
-
 const apiURL = "https://ih-countries-api.herokuapp.com/countries";
-
 
 function App() {
 
@@ -31,7 +29,7 @@ function App() {
         <div className="row">
         {countries && <CountriesList countries={countries}/>} 
           <Routes>
-            <Route path="/:countryCode" element={<CountryDetails countries={countries} />} />
+            <Route path="/:countryCode" element={<CountryDetails />} />
           </Routes>
         </div>
       </div>
@@ -40,4 +38,3 @@ function App() {
 }
 
 export default App;
-/* */

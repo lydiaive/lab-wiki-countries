@@ -1,18 +1,31 @@
 import { Link, useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react"
+import axios from "axios";
 
+function CountryDetails() {
 
-function CountryDetails(props) {
-
-    const countries = props.countries
     const { countryCode } = useParams()
+    
+    const [selectedCountry, setSelectedCountry] = useState(null)
 
-    const selectedCountry = countries.find((country)=> {
-      return country.alpha3Code === countryCode
-    })
-  
+    useEffect(() => {
+      const apiCAll = async () => {
+        try {
+         const res = await axios.get(`https://ih-countries-api.herokuapp.com/countries/${countryCode}`)
+         setSelectedCountry(res.data)
+        } catch (error) {
+          console.log(error)
+        }
+      }
+
+      apiCAll()
+    }, [countryCode])
+
     return (
         <div className="col-7">
-            <h1>{selectedCountry.name.common}</h1>
+        {selectedCountry && (
+          <div>
+          <h1>{selectedCountry.name.common}</h1> 
             <table className="table">
               <thead></thead>
               <tbody>
@@ -42,6 +55,8 @@ function CountryDetails(props) {
                 </tr>
               </tbody>
             </table>
+            </div>
+            )}
           </div>
     )
   }
